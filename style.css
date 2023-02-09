@@ -1,0 +1,223 @@
+*,
+::before,
+::after {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  --clr-primary: #717171;
+  --clr-accent: #222222;
+  --clr-bg-light: #ffffff;
+  --space-unit: 4px;
+  --space-xxs: calc(0.5 * var(--space-unit));
+  --space-xs: calc(1 * var(--space-unit));
+  --space-sm: calc(1.5 * var(--space-unit));
+  --space-sm2: calc(2 * var(--space-unit));
+  --space-md: calc(3 * var(--space-unit));
+  --space-md2: calc(4 * var(--space-unit));
+  --space-lg: calc(5 * var(--space-unit));
+  --space-xl: calc(6 * var(--space-unit));
+  --space-xl2: calc(7 * var(--space-unit));
+  --space-xxl: calc(8 * var(--space-unit));
+  --space-xxl2: calc(9 * var(--space-unit));
+  --space-xxxl: calc(10 * var(--space-unit));
+}
+
+body {
+  font-family: "Montserrat", sans-serif;
+  font-size: 15px;
+  line-height: 19px;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+button {
+  outline: 0;
+  cursor: pointer;
+}
+
+.container {
+  height: 100%;
+  padding: var(--space-xxl2) var(--space-xxxl);
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  grid-auto-rows: 1fr;
+  row-gap: var(--space-xxxl);
+  column-gap: var(--space-xl);
+  place-content: center;
+  margin-inline: auto;
+}
+
+.card {
+  display: flex;
+  flex-direction: column;
+  gap: var(--space-md);
+  cursor: pointer;
+}
+
+.card .card-img {
+  height: 100%;
+  width: 100%;
+  display: grid;
+}
+
+.stacked > * {
+  grid-column: 1 / 2;
+  grid-row: 1 / 2;
+}
+
+.card-img img {
+  height: 100%;
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  border-radius: 12px;
+}
+
+.card-img .top-content {
+  align-self: start;
+  padding: var(--space-md);
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.btn-save {
+  border: 0;
+  background-color: transparent;
+  font-size: 24px;
+}
+
+.btn-save svg {
+  display: block;
+  height: 24px;
+  width: 24px;
+  stroke: var(--clr-bg-light);
+  fill: rgba(0, 0, 0, 0.5);
+  stroke-width: 2;
+  overflow: visible;
+}
+
+.flag {
+  font-size: 14px;
+  line-height: 18px;
+  background-color: var(--clr-bg-light);
+  padding: var(--space-xs) var(--space-sm2);
+  border-radius: 4px;
+}
+
+.card-img .slide-indicators {
+  display: flex;
+  justify-content: space-around;
+  align-self: end;
+  justify-self: center;
+  margin-bottom: var(--space-md);
+}
+
+.slide-indicators .indicator {
+  display: inline-block;
+  background-color: var(--clr-bg-light);
+  border-radius: 50%;
+  margin-inline: var(--space-xxs);
+  min-height: 6px;
+  height: 6px;
+  min-width: 6px;
+  width: 6px;
+  opacity: 1;
+}
+
+.slide-indicators :not(:first-child) {
+  opacity: 0.6;
+}
+
+.slide-indicators :nth-last-child(2) {
+  transform: scale(0.833);
+}
+
+.slide-indicators :nth-last-child(1) {
+  transform: scale(0.666);
+}
+
+.card-content {
+  display: grid;
+  grid-template-columns: 5fr 1fr;
+  grid-template-rows: 0fr;
+  gap: var(--space-xxs) var(--space-sm2);
+  white-space: nowrap;
+}
+
+.card-title,
+.card-description,
+.card-price {
+  overflow: clip;
+  text-overflow: ellipsis;
+}
+
+.card-title {
+  grid-column: 1 / -1;
+  font-size: inherit;
+}
+
+.superhost,
+.card-title,
+.card-review,
+.card-price .price-night {
+  color: var(--clr-accent);
+}
+
+.superhost,
+.card-title,
+.price-night .price-value {
+  font-weight: 600;
+}
+
+.card-review {
+  grid-column: -1 / -1;
+  justify-self: end;
+  display: flex;
+  align-items: center;
+  gap: var(--space-xs);
+}
+
+.card-beds,
+.card-date {
+  grid-column: 1 / 1;
+}
+
+.card-description,
+.card-price {
+  grid-column: 1 / -1;
+}
+
+.card-description,
+.card-beds,
+.card-date {
+  color: var(--clr-primary);
+}
+
+.card-price {
+  display: flex;
+  align-items: center;
+  margin-top: var(--space-sm);
+  gap: var(--space-xs);
+  overflow: visible;
+}
+
+.card-price .btn-price {
+  border: 0;
+  background-color: transparent;
+  text-decoration: underline;
+  color: var(--clr-primary);
+}
+
+@media screen and (max-width: 1080px) {
+  .container {
+    padding: var(--space-xl2) var(--space-xxl);
+  }
+}
