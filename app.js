@@ -33,8 +33,37 @@ const displayData = async () => {
 
       const cardImage = document.createElement("img");
       cardImage.src = img_url;
+      //content on top of the image
+      const imageTopContent = document.createElement("div");
+      imageTopContent.className = "top-content";
+
+      const saveBtn = document.createElement("button");
+      saveBtn.className = "btn-save";
+
+      const saveIcon = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "svg"
+      );
+
+      const useTag = document.createElementNS(
+        "http://www.w3.org/2000/svg",
+        "use"
+      );
+
+      useTag.setAttribute("href", "icons/icon-save.svg#save");
+      saveIcon.append(useTag);
+      saveBtn.append(saveIcon);
+
+      const cardFlag = document.createElement("div");
+      //check if flag is not empty string
+      if (flag) {
+        cardFlag.setAttribute("class", "flag");
+        cardFlag.innerText = flag;
+      }
+      //append nested elements to top content
+      imageTopContent.append(saveBtn, cardFlag);
       //append nested elements to image wrapper
-      imageWrapper.append(cardImage);
+      imageWrapper.append(cardImage, imageTopContent);
       /*
       -----CARD CONTENT-----
       */
