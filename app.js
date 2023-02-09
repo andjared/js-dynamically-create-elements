@@ -22,7 +22,27 @@ const displayData = async () => {
         img_url,
         flag,
       } = item;
-      console.log(item);
+
+      const card = document.createElement("div");
+      card.className = "card";
+      /*
+      -----IMAGE WRAPPER------
+      */
+      const imageWrapper = document.createElement("div");
+      imageWrapper.classList = "card-img stacked";
+      const cardImage = document.createElement("img");
+      cardImage.src = img_url;
+      //append nested elements to image wrapper
+      imageWrapper.append(cardImage);
+      /*
+      -----CARD CONTENT 
+      */
+      const cardContent = document.createElement("div");
+      cardContent.className = "card-content";
+      //append nested divs to card
+      card.append(imageWrapper, cardContent);
+      //append each card to grid container
+      container.append(card);
     });
   } catch (error) {
     console.log(error);
