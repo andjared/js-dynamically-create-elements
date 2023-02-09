@@ -146,6 +146,7 @@ const displayData = async () => {
       container.append(card);
     });
   } catch (error) {
+    alert("Something went wrong");
     console.log(error);
   }
 };
