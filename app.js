@@ -7,6 +7,13 @@ const getData = async (url) => {
   return data;
 };
 
+const cloneNode = (n, node, parent) => {
+  for (let i = 0; i < n; i++) {
+    const clonedNode = node.cloneNode(true);
+    parent.append(clonedNode);
+  }
+};
+
 const displayData = async () => {
   try {
     const data = await getData(dataUrl);
@@ -62,8 +69,17 @@ const displayData = async () => {
       }
       //append nested elements to top content
       imageTopContent.append(saveBtn, cardFlag);
+
+      const slideIndicators = document.createElement("div");
+      slideIndicators.className = "slide-indicators";
+
+      const indicator = document.createElement("span");
+      indicator.className = "indicator";
+
+      //append indicator node 5 times
+      cloneNode(5, indicator, slideIndicators);
       //append nested elements to image wrapper
-      imageWrapper.append(cardImage, imageTopContent);
+      imageWrapper.append(cardImage, imageTopContent, slideIndicators);
       /*
       -----CARD CONTENT-----
       */
