@@ -64,8 +64,8 @@ const displayData = async () => {
       const cardFlag = document.createElement("div");
       //check if flag is not empty string
       if (flag) {
-        cardFlag.setAttribute("class", "flag");
-        cardFlag.innerText = flag;
+        cardFlag.className = "flag";
+        cardFlag.innerText = flag.charAt(0).toUpperCase() + flag.slice(1);
       }
       //append nested elements to top content
       imageTopContent.append(saveBtn, cardFlag);
